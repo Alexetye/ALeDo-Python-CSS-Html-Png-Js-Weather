@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8>
+    <title>Weather</title>
+
+    <script src="eel.js"></script>
+    <link rel="icon" type="image/png" href="/fecb.png">
+
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <input id="location" type="text" placeholder="Enter the name of the country and city..." required="" value="">
+
+    <button id="show">Find out the weather</button>
+
+    <div id="info"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        async function display_weather() {
+            Let place = document.getElementById('location').value;
+
+            Let res = await eel.get_weather(place)();
+            document.getElementById('info').innerHTML = res;
+        }
+
+        jQuery('#show').on('click', function() {
+
+            display_weather();
+        });
+    </script>
+</body>
+</html>
